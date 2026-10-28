@@ -1,5 +1,5 @@
 function page() {
-  return <div>about</div>;
+  return <div className=" font-heading text-4xl">about</div>;
 }
 
 export default page;

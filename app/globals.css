@@ -1,26 +1,56 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
+  /* Colors */
+  --color-background: #f8f3e8;
+  --color-foreground: #28231f;
+
+  --color-card: #ffffff;
+  --color-card-foreground: #28231f;
+
+  --color-popover: #ffffff;
+  --color-popover-foreground: #28231f;
+
+  --color-primary: #4b171e;
+  --color-primary-foreground: #f8f3e8;
+
+  --color-secondary: #e4d7be;
+  --color-secondary-foreground: #28231f;
+
+  --color-muted: #f0eae0;
+  --color-muted-foreground: #6c625c;
+
+  --color-accent: #e4d7be;
+  --color-accent-foreground: #28231f;
+
+  --color-destructive: #9d2525;
+  --color-destructive-foreground: #f8f3e8;
+
+  --color-border: #d9d0c2;
+  --color-input: #d9d0c2;
+  --color-ring: #b69a6a;
+
+  /* Charts */
+  --color-chart-1: #4b171e;
+  --color-chart-2: #b69a6a;
+  --color-chart-3: #e4d7be;
+  --color-chart-4: #849078;
+  --color-chart-5: #28231f;
+
+  /* Border radius */
+  --radius: 0.25rem;
+  /* Fonts */
+  --font-heading: var(--font-cormorant);
+  --font-display: var(--font-cormorant);
+  --font-body: var(--font-geist);
   --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  /* Sidebar */
+  --color-sidebar-background: #f8f3e8;
+  --color-sidebar-foreground: #28231f;
+  --color-sidebar-primary: #4b171e;
+  --color-sidebar-primary-foreground: #f8f3e8;
+  --color-sidebar-accent: #e4d7be;
+  --color-sidebar-accent-foreground: #28231f;
+  --color-sidebar-border: #d9d0c2;
+  --color-sidebar-ring: #b69a6a;
 }
