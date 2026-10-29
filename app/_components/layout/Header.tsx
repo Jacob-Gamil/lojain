@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Menu, Search, ShoppingBag } from "lucide-react";
 import LotusMark from "../ui/LotusMark";
@@ -16,23 +16,30 @@ const links = [
 ];
 
 export default function Header() {
-  //   const { count, setDrawerOpen } = useCart();
+  // const { count, setDrawerOpen } = useCart();
   const [searchOpen, setSearchOpen] = useState<boolean>(false);
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
   const [condensed, setCondensed] = useState<boolean>(false);
 
+  useEffect(() => {
+    const onScroll = () => setCondensed(window.scrollY > 24);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
     <>
       <div className="bg-primary px-4 py-2.5 text-center">
-        <p className="text-[10px] uppercase tracking-[0.3em] text-background/85">
+        <p className="text-[10px] uppercase tracking-[0.3em] text-background/85 font-mono">
           Handcrafted with inspiration from ancient Egypt
         </p>
       </div>
 
-      <header className="sticky top-0 z-50 border-b border-ink/10 bg-ivory/90 backdrop-blur-md">
-        <div className="container-lux">
+      <header className="sticky top-0 z-50 border-b border-foreground/10 bg-background/90 backdrop-blur-md ">
+        <div className="flex w-full max-w-330 justify-between px-6 lg:px-12 items-center ">
           <div
-            className={`flex items-center justify-between gap-6 transition-all duration-500 ${
+            className={`flex items-center justify-between gap-6 transition-all duration-500 w-full ${
               condensed ? "h-17" : "h-21"
             }`}
           >
@@ -47,13 +54,14 @@ export default function Header() {
               </span>
             </Link>
 
-            <nav
-              aria-label="Primary"
-              className="hidden items-center gap-9 lg:flex"
-            >
+            <nav className="hidden items-center gap-9 lg:flex">
               {links.map((link) => (
-                <Link key={link.to} href={link.to}>
-                  <span>{link.label}</span>
+                <Link
+                  key={link.to}
+                  href={link.to}
+                  className=" tracking-[0.20em] uppercase text-sm "
+                >
+                  <span className="">{link.label}</span>
                 </Link>
               ))}
             </nav>
@@ -69,6 +77,7 @@ export default function Header() {
               </button>
             </div>
           </div>
+          <div>1</div>
         </div>
       </header>
 
